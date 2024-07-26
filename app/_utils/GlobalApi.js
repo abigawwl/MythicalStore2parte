@@ -12,18 +12,29 @@ const axiosClient = axios.create({
 
 const getLatestProducts = () => axiosClient.get('/products?populate=*');
 
-const getProductById = (id) => axiosClient.get(`/products/${id}?populate=*`);
+const getProductById=(productId)=>{
+  console.log("Product Id",productId)
+  const res = axiosClient.get('/products/'+productId+'?populate=*')
+  console.log(res)
+  return res
+}
 
-const getProductByCategory = (category) => axiosClient.get(`/products?filters[category][$eq]=${category}&populate=*`);
+const getProductByCategory = (category) => {
+  const categoryFilter = category ? `filters[category][$eq]=${category}` : '';
+  return axiosClient.get(`/products?${categoryFilter}&populate=*`);
+}
+
 
 const addToCart = (data) => axiosClient.post('/carts', data);
 
 const getUserCartItems = (email) => axiosClient.get(`/carts?populate[products][populate][0]=banner&filters[email][$eq]=${email}`);
 
-const deleteCartItem = (productId) => {
-  return axiosClient.delete(`/carts/${productId}`);
-};
-
+const deleteCartItem=(productId)=>{
+  console.log("Product Id",productId)
+  const res = axiosClient.delete('/carts/'+productId)
+  console.log(res)
+  return res
+}
 const createOrder = (data) => axiosClient.post('/orders', data);
 
 export default {
