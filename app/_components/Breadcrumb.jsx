@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Breadcrumb({ path }) {
-  // Verifica si path es una cadena
   const isString = typeof path === 'string';
   const pathSegments = isString ? path.split('/') : [];
 
@@ -44,7 +43,6 @@ function Breadcrumb({ path }) {
                 />
               </svg>
             </li>
-
             <li>
               <a href="#" className="block transition hover:text-gray-700">
                 {pathSegments[1]}
@@ -69,7 +67,6 @@ function Breadcrumb({ path }) {
                 />
               </svg>
             </li>
-
             <li>
               <a href="#" className="block transition hover:text-gray-700">
                 {pathSegments[2]}
