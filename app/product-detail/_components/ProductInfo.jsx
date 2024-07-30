@@ -56,7 +56,7 @@ function ProductInfo({ product }) {
         });
       }
     } catch (error) {
-      console.log('Error', error);
+      console.error('Error adding to cart:', error);
     } finally {
       setIsAdding(false);
     }
