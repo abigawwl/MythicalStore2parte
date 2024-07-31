@@ -8,6 +8,15 @@ function ProductBanner({ product }) {
     setIsLoading(false);
   };
 
+  if(!product || !product?.attributes?.banner?.data?.attributes?.url) {
+    return (
+      <div className="h-[350px] w-[350px] bg-slate-200 animate-pulse rounded-lg">
+        <div className="h-[400px] w-[350px] bg-slate-200 animate-pulse rounded-lg"></div>
+      </div>
+    )
+  }
+
+
   return (
     <div>
       {product ? (
@@ -16,7 +25,7 @@ function ProductBanner({ product }) {
             <div className="h-[350px] w-[350px] bg-slate-200 animate-pulse rounded-lg"></div>
           )}
           <Image
-            src={product?.attributes?.banner?.data?.attributes.url}
+            src={'http://localhost:1337' + product?.attributes?.banner?.data.attributes?.url}
             alt="banner"
             width={350}
             height={400}
