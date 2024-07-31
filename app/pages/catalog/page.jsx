@@ -64,7 +64,7 @@ function Page() {
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <Link href={'/product-detail/' + product.id} key={product.id} className="p-4 border border-gray-800 rounded-lg">
-                  <Image src={product?.attributes?.banner?.data.attributes?.url}
+                  <Image src={'http://localhost:1337' + product?.attributes?.banner?.data.attributes?.url}
                     alt='banner'
                     width={400}
                     height={550}
