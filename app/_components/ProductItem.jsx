@@ -6,7 +6,7 @@ function ProductItem({product}) {
   return (
     <Link href={'product-detail/'+product.id}>
         <div className='hover:border rounded-lg flex flex-col items-center'>
-            <Image src={product?.attributes?.banner?.data.attributes?.url}
+            <Image src={'http://localhost:1337' + product?.attributes?.banner?.data.attributes?.url}
             alt='banner'
             width={400}
             height={550}
